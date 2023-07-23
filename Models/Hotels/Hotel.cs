@@ -2,6 +2,7 @@
 using BookingApp.Models.Bookings.Contracts;
 using BookingApp.Models.Hotels.Contacts;
 using BookingApp.Models.Rooms.Contracts;
+using BookingApp.Repositories;
 using BookingApp.Repositories.Contracts;
 using BookingApp.Utilities.Messages;
 using System;
@@ -16,13 +17,12 @@ namespace BookingApp.Models.Hotels
     {
         private string fullName;
         private int category;
-       
-
+  
         public Hotel(string fullName, int category)
         {
             this.fullName = fullName;
             this.category = category;
-           
+            
         }
 
         public string FullName
@@ -54,8 +54,10 @@ namespace BookingApp.Models.Hotels
         public double Turnover { get; private set; }
  
 
-        public IRepository<IRoom> Rooms{ get;}
+        public IRepository<IRoom> Rooms => new RoomRepository();
+        
 
-        public IRepository<IBooking> Bookings { get;}
+
+        public IRepository<IBooking> Bookings => new BookingRepository();
     }
 }
