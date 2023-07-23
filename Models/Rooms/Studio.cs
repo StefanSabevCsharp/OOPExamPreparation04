@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace BookingApp.Models.Rooms
 {
-    internal class Studio
+    public class Studio : Room
     {
+        private const int DefaultCapacity = 4;
+        public Studio() 
+            : base(DefaultCapacity)
+        {
+        }
     }
 }
