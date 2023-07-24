@@ -17,6 +17,7 @@ namespace BookingApp.Repositories
         }
         public void AddNew(IRoom model)
         => rooms.Add(model);
+        
 
         public IReadOnlyCollection<IRoom> All()
         => rooms.AsReadOnly();
